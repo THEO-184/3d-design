@@ -1,10 +1,10 @@
 import { Environment, OrbitControls, PerspectiveCamera, useTexture } from '@react-three/drei'
-import { useFrame,ThreeElements, MeshProps } from '@react-three/fiber'
 import React, { useEffect, useRef } from 'react'
 import { MathUtils, BackSide,Mesh,Group, Material, NormalBufferAttributes, Object3DEventMap } from 'three'
 import { OrbitControls as OrbitControlsImpl, } from 'three-stdlib';
 import gsap from "gsap"
 import { CarModel } from './CarModel';
+import { WomanModel } from '../3d-carshow/Woman';
 
 
 const Three = () => {

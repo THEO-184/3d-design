@@ -8,8 +8,8 @@ Title: Chevrolet Corvette (C7)
 */
 
 import * as THREE from 'three'
-import React, { Ref } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { Ref, useEffect } from 'react'
+import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
@@ -114,7 +114,10 @@ type GLTFResult = GLTF & {
 
 
 export const CarModel = React.forwardRef<THREE.Group,JSX.IntrinsicElements['group']>((props, ref) => {
-  const { nodes, materials,  } = useGLTF('/models/car.glb') as unknown as GLTFResult
+  const { nodes, materials,animations  } = useGLTF('/models/car.glb') as unknown as GLTFResult
+  const {actions, names} = useAnimations(animations, ref as any);
+
+
   return (
     <group ref={ref} {...props} dispose={null}>
       <group position={[1.6, 0.76, 2.68]} rotation={[2.199, Math.PI / 2, 0]} scale={[1, 1, 1.1]}>
